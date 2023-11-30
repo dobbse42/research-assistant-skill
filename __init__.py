@@ -5,9 +5,11 @@ import Paper
 class ResearchAssistant(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+        self.log.info("assistant has loaded")
 
     @intent_file_handler('assistant.research.intent')
     def handle_assistant_research(self, message):
+        self.log.info("assistant has entered intent handler")
         self.speak_dialog('assistant.research')
         my_paper = Paper.Paper("1904.12956")
         self.speak(str(my_paper.arxiv_id))
